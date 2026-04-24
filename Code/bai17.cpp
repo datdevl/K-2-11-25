@@ -1,13 +1,25 @@
 #include <iostream>
+#include <iomanip>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 int main() {
-    double P, B, D, in, out;
-    int N;
-    cin >> P >> B >> D >> in >> out >> N;
-    for (int i = 1; i <= N; i++) {
-        P = P + P*B - P*D + in - out;
-        cout << "Nam " << i << ": " << P << endl;
-    }
+    // Khoi tao bo sinh so ngau nhien
+    srand(time(0));
+
+    // Tao 2 so ngau nhien tu 100 den 999
+    int a = rand() % 900 + 100;
+    int b = rand() % 900 + 100;
+    cout << "  " << setw(4) << a << endl;
+    cout << "+ " << setw(4) << b << endl;
+    cout << "------" << endl;
+    cout << "Nhan phim bat ky de xem dap an...";
+    cin.get();
+    cout << "\n  " << setw(4) << a << endl;
+    cout << "+ " << setw(4) << b << endl;
+    cout << "------" << endl;
+    cout << "  " << setw(4) << a + b << endl;
+
     return 0;
 }

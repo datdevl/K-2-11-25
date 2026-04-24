@@ -1,23 +1,38 @@
 #include <iostream>
+#include <iomanip>
+#include <string>
 using namespace std;
 
 int main() {
-    int dathang, cuon;
-    double bs;
-    cout << "Nhap so cuon dat hang: "; cin >> dathang;
-    cout << "Nhap so cuon trong kho: "; cin >> cuon;
-    cout << "Nhap chi phi phu (neu co): "; cin >> bs;
+    string month;
+    double totalCollected;
 
-    int giao = dathang < cuon ? dathang : cuon;
-    int conlai = dathang - giao;
+    cout << "Nhap thang: ";
+    getline(cin, month);
 
-    double tien = giao * 100;
-    double phi = giao * (10 + bs);
+    cout << "Nhap tong so tien thu duoc: ";
+    cin >> totalCollected;
 
-    cout << "Cuon giao: " << giao << endl;
-    cout << "Cuon con lai: " << conlai << endl;
-    cout << "Tien hang: " << tien << endl;
-    cout << "Phi van chuyen: " << phi << endl;
-    cout << "Tong tien: " << tien + phi << endl;
+    const double STATE_TAX_RATE = 0.04;
+    const double COUNTY_TAX_RATE = 0.02;
+    const double TOTAL_TAX_RATE = 0.06;
+
+    // Tinh doanh thu ban san pham
+    double sales = totalCollected / (1 + TOTAL_TAX_RATE);
+
+    // Tinh thue
+    double countyTax = sales * COUNTY_TAX_RATE;
+    double stateTax = sales * STATE_TAX_RATE;
+    double totalTax = countyTax + stateTax;
+
+    cout << fixed << setprecision(2);
+    cout << "\nMonth: " << month << endl;
+    cout << "--------------------------\n";
+    cout << "Total Collected:   $" << totalCollected << endl;
+    cout << "Sales:             $" << sales << endl;
+    cout << "County Sales Tax:  $" << countyTax << endl;
+    cout << "State Sales Tax:   $" << stateTax << endl;
+    cout << "Total Sales Tax:   $" << totalTax << endl;
+
     return 0;
 }

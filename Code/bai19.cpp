@@ -1,18 +1,41 @@
 #include <iostream>
+#include <iomanip>
+#include <cmath>
 using namespace std;
 
 int main() {
-    double ny = 85;
-    double denver = 88;
-    double phoenix = 106;
+    double loanAmount;
+    double annualRate;
+    int years;
 
-    ny *= 1.02;
-    denver *= 1.02;
-    phoenix *= 1.02;
+    cout << "Nhap so tien vay: ";
+    cin >> loanAmount;
 
-    cout << "New York sau khi tang: " << ny << " F\n";
-    cout << "Denver sau khi tang: " << denver << " F\n";
-    cout << "Phoenix sau khi tang: " << phoenix << " F\n";
+    cout << "Nhap lai suat hang nam (%): ";
+    cin >> annualRate;
+
+    cout << "Nhap so nam vay: ";
+    cin >> years;
+
+    double monthlyRate = annualRate / 100 / 12;
+    int numberOfPayments = years * 12;
+
+    double monthlyPayment =
+        (monthlyRate * pow(1 + monthlyRate, numberOfPayments)) /
+        (pow(1 + monthlyRate, numberOfPayments) - 1) * loanAmount;
+
+    double amountPaidBack = monthlyPayment * numberOfPayments;
+    double interestPaid = amountPaidBack - loanAmount;
+
+    cout << fixed << setprecision(2);
+    cout << "\n---------------------------------\n";
+    cout << left << setw(25) << "Loan Amount:" << "$" << loanAmount << endl;
+    cout << setw(25) << "Monthly Interest Rate:" << monthlyRate * 100 << "%" << endl;
+    cout << setw(25) << "Number of Payments:" << numberOfPayments << endl;
+    cout << setw(25) << "Monthly Payment:" << "$" << monthlyPayment << endl;
+    cout << setw(25) << "Amount Paid Back:" << "$" << amountPaidBack << endl;
+    cout << setw(25) << "Interest Paid:" << "$" << interestPaid << endl;
+    cout << "---------------------------------\n";
 
     return 0;
 }

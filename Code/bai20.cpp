@@ -1,10 +1,22 @@
 #include <iostream>
+#include <iomanip>
+#include <cmath>
 using namespace std;
 
 int main() {
-    double NS, SP, SC, PP, PC;
-    cin >> NS >> SP >> SC >> PP >> PC;
-    double loinhuan = (NS*SP - SC) - (NS*PP + PC);
-    cout << loinhuan << endl;
+    const double PI = 3.14159;
+    const double SLICE_AREA = 14.125;
+
+    double diameter;
+    cout << "Nhap duong kinh pizza (inch): ";
+    cin >> diameter;
+
+    double radius = diameter / 2;
+    double area = PI * radius * radius;
+    double slices = area / SLICE_AREA;
+
+    cout << fixed << setprecision(1);
+    cout << "So luong mieng cat nen chia: " << slices << endl;
+
     return 0;
 }

@@ -1,31 +1,18 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
-int getNumAccidents(string area) {
-    int x;
-    do {
-        cout << "Nhap so tai nan " << area << ": ";
-        cin >> x;
-    } while (x < 0);
-    return x;
-}
-
-void findLowest(int a, int b, int c, int d, int e) {
-    int min = a;
-    string name = "Dong";
-    if (b < min) { min = b; name = "Nam"; }
-    if (c < min) { min = c; name = "Tay"; }
-    if (d < min) { min = d; name = "Bac"; }
-    if (e < min) { min = e; name = "Trung tam"; }
-    cout << "Khu vuc an toan nhat: " << name << " (" << min << ")" << endl;
-}
-
 int main() {
-    int d = getNumAccidents("Dong");
-    int n = getNumAccidents("Nam");
-    int t = getNumAccidents("Tay");
-    int b = getNumAccidents("Bac");
-    int tt = getNumAccidents("Trung tam");
-    findLowest(d, n, t, b, tt);
+    string m1, m2, m3;
+    double r1, r2, r3;
+
+    cin >> m1 >> r1;
+    cin >> m2 >> r2;
+    cin >> m3 >> r3;
+
+    double avg = (r1 + r2 + r3) / 3;
+    cout << "Luong mua trung binh cua thang "
+         << m1 << ", " << m2 << ", va " << m3
+         << " la " << avg << " inches" << endl;
     return 0;
 }

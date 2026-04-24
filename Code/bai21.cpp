@@ -1,20 +1,27 @@
 #include <iostream>
+#include <iomanip>
+#include <cmath>
 using namespace std;
 
-double cophieu(double NS,double SP,double SC,double PP,double PC) {
-    return (NS*SP - SC) - (NS*PP + PC);
-}
-
 int main() {
-    int n; cin >> n;
-    double total = 0;
-    for(int i=1;i<=n;i++){
-        double a,b,c,d,e;
-        cin >> a >> b >> c >> d >> e;
-        double p = cophieu(a,b,c,d,e);
-        cout << p << endl;
-        total += p;
-    }
-    cout << total << endl;
+    const double PI = 3.14159;
+    const double SLICE_AREA = 14.125;
+
+    int people;
+    double diameter;
+
+    cout << "Nhap so nguoi tham du: ";
+    cin >> people;
+    cout << "Nhap duong kinh pizza (inch): ";
+    cin >> diameter;
+
+    double radius = diameter / 2;
+    double slicesPerPizza = (PI * radius * radius) / SLICE_AREA;
+
+    int totalSlices = people * 4;
+    int pizzas = ceil(totalSlices / slicesPerPizza);
+
+    cout << "So luong pizza can mua: " << pizzas << endl;
+
     return 0;
 }

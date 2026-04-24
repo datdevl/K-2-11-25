@@ -1,23 +1,16 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
-double getLength() {
-    double x; cout << "Nhap chieu dai: "; cin >> x; return x;
-}
-double getWidth() {
-    double x; cout << "Nhap chieu rong: "; cin >> x; return x;
-}
-double getArea(double l, double w) {
-    return l * w;
-}
-void displayData(double l, double w, double a) {
-    cout << "Dai: " << l << "\nRong: " << w << "\nDien tich: " << a << endl;
-}
-
 int main() {
-    double l = getLength();
-    double w = getWidth();
-    double a = getArea(l, w);
-    displayData(l, w, a);
+    int A, B, C;
+    cout << "So ve hang A: "; cin >> A;
+    cout << "So ve hang B: "; cin >> B;
+    cout << "So ve hang C: "; cin >> C;
+
+    double total = A*15 + B*12 + C*9;
+
+    cout << fixed << setprecision(2);
+    cout << "Tong doanh thu: $" << total << endl;
     return 0;
 }

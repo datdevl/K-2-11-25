@@ -1,14 +1,13 @@
 #include <iostream>
 using namespace std;
 
-double kineticEnergy(double m, double v) {
-    return 0.5 * m * v * v;
-}
-
 int main() {
-    double m, v;
-    cout << "Nhap khoi luong: "; cin >> m;
-    cout << "Nhap van toc: "; cin >> v;
-    cout << "Dong nang: " << kineticEnergy(m, v) << endl;
+    int banh;
+    cin >> banh;
+
+    double tiLe = banh / 48.0;
+    cout << "Duong: " << 1.5 * tiLe << " coc\n";
+    cout << "Bo: " << 1.0 * tiLe << " coc\n";
+    cout << "Bot: " << 2.75 * tiLe << " coc\n";
     return 0;
 }

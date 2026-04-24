@@ -2,15 +2,17 @@
 using namespace std;
 
 int main() {
-    int user, cpu = rand()%3 + 1;
-    cout << "1.Bua 2.Giay 3.Keo: ";
-    cin >> user;
+    double R, E, S;
 
-    cout << "May: " << cpu << endl;
+    cout << "Nhap chieu dai hang (feet): ";
+    cin >> R;
+    cout << "Nhap khoang trong cum cuoi (feet): ";
+    cin >> E;
+    cout << "Nhap khoang cach giua cac day nho (feet): ";
+    cin >> S;
 
-    if (user == cpu) cout << "Hoa";
-    else if ((user==1 && cpu==3)||(user==3 && cpu==2)||(user==2 && cpu==1))
-        cout << "Ban thang";
-    else cout << "May thang";
+    int V = (R - 2 * E) / S;
+    cout << "So cay nho co the trong: " << V << endl;
+
     return 0;
 }

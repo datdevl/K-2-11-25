@@ -1,19 +1,13 @@
 #include <iostream>
 using namespace std;
 
-double calculateRetail(double cost, double percent) {
-    return cost + cost * percent / 100;
-}
-
 int main() {
-    double cost, percent;
-    do {
-        cout << "Nhap gia ban buon: ";
-        cin >> cost;
-        cout << "Nhap ty le phan tram: ";
-        cin >> percent;
-    } while (cost < 0 || percent < 0);
+    double gallons, miles;
+    cout << "Nhap so gallon xang: ";
+    cin >> gallons;
+    cout << "Nhap so dam di duoc: ";
+    cin >> miles;
 
-    cout << "Gia ban le: " << calculateRetail(cost, percent) << endl;
+    cout << "So dam tren moi gallon: " << miles / gallons << endl;
     return 0;
 }
